@@ -18,6 +18,7 @@ export default Ember.Controller.extend({
           method: 'post',
           body: JSON.stringify(data),
         });
-    }
+    },
+
   }
 });
