@@ -1,10 +1,26 @@
-<p>Can You See This</p>
 
-<a href="/">Index</a>
-<a href="/blogs">Blogs</a>
-<a href="/bookmarks">Bookmarks</a>
-<a href="/contacts">Contacts</a>
+<form {{action "addPerson" on="submit"}}>
+  <p>
+    <label>First Name</label>
+    {{input type="text" value=firstName}}
+  </p>
 
+  <p>
+    <label>Last Name</label>
+    {{input type="text" value=lastName}}
+  </p>
 
+  <p>
+    <label>Address</label>
+    {{input type="text" value=address}}
+  </p>
+
+  <p>
+    <label>Phone Number</label>
+    {{input type="text" value=phoneNumber}}
+  </p>
+
+  <button>Submit</button>
+</form>
 
 {{outlet}}
