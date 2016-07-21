@@ -1,8 +1,8 @@
 {{log data.firstName}}
 
-<button class="new-contact__btn">Create New Contact</button>
+<button class="new-contact__btn" {{action "toggleForm"}}>Create New Contact</button>
 
-
+{{#if isShowingForm}}
 <form class="new-contact__form" {{action "addContact" on="submit"}}>
   <p>
     <label>First Name</label>
@@ -26,6 +26,7 @@
 
   <button>Submit</button>
 </form>
+{{/if}}
 
 {{#each model as |dog|}}
   <div class="contacts-list">
