@@ -1,0 +1,10 @@
+{{log model}}
+
+{{#each model as |duck|}}
+<div class="blogs">
+  <h1 class="title">{{duck.title}}</h1>
+  <p class="content">{{duck.content}}</p>
+</div>
+{{/each}}
+
+{{outlet}}

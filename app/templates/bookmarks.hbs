@@ -1,0 +1,23 @@
+
+<form class="bookmarks-form" {{action "addBookmark" on="submit"}}>
+  <div>
+    <label>Nickname</label>
+    {{input type="text" value=nickname}}
+    <label>URL</label>
+    {{input type="text" value=url}}
+  </div>
+  <button>Submit</button>
+
+  <div class="bookmarks-list">
+  <h3>Current Bookmarks</h3>
+  {{#each model as |cow|}}
+    <p class="title">{{cow.nickname}}</p>
+    <p>{{cow.url}}</p>
+  {{/each}}
+  </div>
+</form>
+
+{{log model}}
+
+
+{{outlet}}

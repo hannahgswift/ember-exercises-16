@@ -1,0 +1,40 @@
+{{log data.firstName}}
+
+<button class="new-contact__btn" {{action "toggleForm"}}>Create New Contact</button>
+
+{{#if isShowingForm}}
+<form class="new-contact__form" {{action "addContact" on="submit"}}>
+  <p>
+    <label>First Name</label>
+    {{input type="text" value=firstName}}
+  </p>
+
+  <p>
+    <label>Last Name</label>
+    {{input type="text" value=lastName}}
+  </p>
+
+  <p>
+    <label>Address</label>
+    {{input type="text" value=address}}
+  </p>
+
+  <p>
+    <label>Phone Number</label>
+    {{input type="text" value=phoneNumber}}
+  </p>
+
+  <button>Submit</button>
+</form>
+{{/if}}
+
+{{#each model as |kitty|}}
+  <div class="contacts-list">
+    <h4 class="first-name">{{kitty.firstName}} {{kitty.lastName}}</h4>
+    <p class="address">{{kitty.address}}</p>
+    <p class="phone-number">{{kitty.phoneNumber}}</p>
+    <button {{action "deleteContact" kitty}}>Delete</button>
+  </div>
+{{/each}}
+
+{{outlet}}
