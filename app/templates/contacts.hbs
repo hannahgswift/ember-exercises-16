@@ -33,7 +33,7 @@
     <h4 class="first-name">{{dog.firstName}} {{dog.lastName}}</h4>
     <p class="address">{{dog.address}}</p>
     <p class="phone-number">{{dog.phoneNumber}}</p>
-    <button>Delete</button>
+    <button {{action "deleteContact" on="click"}}>Delete</button>
   </div>
 {{/each}}
 
