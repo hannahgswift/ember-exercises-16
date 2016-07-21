@@ -4,11 +4,11 @@ export default Ember.Controller.extend({
   actions: {
     addContact() {
       const data = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        address: this.address,
-        phoneNumber: this.phoneNumber
-      };
+        firstName: this.firstName || '',
+        lastName: this.lastName || '',
+        address: this.address || '',
+        phoneNumber: this.phoneNumber || '',
+      }
 
       fetch('https://tiny-tn.herokuapp.com/collections/hs-contacts', {
         headers: {
@@ -17,6 +17,15 @@ export default Ember.Controller.extend({
         },
         method: 'post',
         body: JSON.stringify(data),
+      }).then((res) => res.json())
+        .then((person) => {
+        this.setProperties({
+          'firstName': '',
+          'lastName': '',
+          'address': '',
+          'phoneNumber': ''
+        });
+        this.set('model', [...this.model, person]);
       });
     },
 
@@ -25,8 +34,8 @@ export default Ember.Controller.extend({
     },
 
     deleteContact(kitty) {
-      if (confirm('Are you sure you want to delete?')) {
-        fetch('https://tiny-tn.herokuapp.com/collections/hs-contacts' + kitty._id, {
+      if (confirm('Are you sure you want to delete this contact?')) {
+        fetch('https://tiny-tn.herokuapp.com/collections/hs-contacts/' + kitty._id, {
           method: 'Delete',
         }).then(() => {
           const updatedList = this.model.filter((item) => {
