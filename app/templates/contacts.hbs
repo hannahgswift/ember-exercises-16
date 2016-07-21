@@ -28,12 +28,12 @@
 </form>
 {{/if}}
 
-{{#each model as |dog|}}
+{{#each model as |kitty|}}
   <div class="contacts-list">
-    <h4 class="first-name">{{dog.firstName}} {{dog.lastName}}</h4>
-    <p class="address">{{dog.address}}</p>
-    <p class="phone-number">{{dog.phoneNumber}}</p>
-    <button {{action "deleteContact" on="click"}}>Delete</button>
+    <h4 class="first-name">{{kitty.firstName}} {{kitty.lastName}}</h4>
+    <p class="address">{{kitty.address}}</p>
+    <p class="phone-number">{{kitty.phoneNumber}}</p>
+    <button {{action "deleteContact" kitty}}>Delete</button>
   </div>
 {{/each}}
 
